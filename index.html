@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sense-ational Digital Card</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        margin: 0;
+        background: #f4f1e8;
+        color: #26352b;
+    }
+
+    .container {
+        max-width: 500px;
+        margin: auto;
+        padding: 25px 18px 40px;
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .header h1 {
+        font-size: 34px;
+        margin: 5px 0;
+        letter-spacing: 1px;
+    }
+
+    .header p {
+        margin: 5px 0;
+        font-size: 15px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 22px;
+        padding: 22px;
+        margin-bottom: 18px;
+        box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+    }
+
+    .participant {
+        text-align: center;
+    }
+
+    .participant-id {
+        font-size: 25px;
+        font-weight: bold;
+        margin-top: 8px;
+    }
+
+    .sense {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 17px;
+        margin: 12px 0;
+        border-radius: 15px;
+        background: #f1f3ee;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .sense:hover {
+        transform: scale(1.01);
+    }
+
+    .sense-left {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+    }
+
+    .emoji {
+        font-size: 29px;
+    }
+
+    .sense-name {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .status {
+        font-size: 13px;
+        font-weight: bold;
+        padding: 7px 10px;
+        border-radius: 20px;
+        background: #ddd;
+        color: #555;
+    }
+
+    .completed {
+        background: #dcefdc;
+        color: #28723c;
+    }
+
+    .locked {
+        background: #e5e5e5;
+        color: #666;
+    }
+
+    .progress {
+        text-align: center;
+        margin-top: 18px;
+    }
+
+    .progress-bar {
+        height: 12px;
+        background: #ddd;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-top: 10px;
+    }
+
+    .progress-fill {
+        height: 100%;
+        width: 0%;
+        background: #5d8b63;
+        transition: 0.4s;
+    }
+
+    .success {
+        display: none;
+        text-align: center;
+        padding: 20px;
+        border-radius: 18px;
+        background: #e4f3df;
+        margin-top: 20px;
+    }
+
+    .success h2 {
+        margin-top: 0;
+    }
+
+    .tea {
+        font-size: 45px;
+    }
+
+    .reset {
+        width: 100%;
+        border: none;
+        padding: 13px;
+        border-radius: 12px;
+        background: #ddd;
+        margin-top: 15px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .footer {
+        text-align: center;
+        font-size: 12px;
+        margin-top: 25px;
+        opacity: 0.7;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.55);
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .modal-box {
+        background: white;
+        padding: 25px;
+        border-radius: 20px;
+        width: 100%;
+        max-width: 380px;
+        text-align: center;
+    }
+
+    .modal-box input {
+        width: 100%;
+        padding: 14px;
+        margin: 15px 0;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .modal-box button {
+        width: 100%;
+        padding: 13px;
+        border: none;
+        border-radius: 10px;
+        background: #5d8b63;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .error {
+        color: #b3261e;
+        font-size: 13px;
+        display: none;
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <div style="font-size:45px;">🌿</div>
+        <h1>SENSE-ATIONAL</h1>
+        <p>Awaken Your Senses</p>
+    </div>
+
+    <div class="card participant">
+        <div>PARTICIPANT</div>
+        <div class="participant-id" id="participantId"></div>
+        <p>Keep this card open throughout your sensory journey.</p>
+    </div>
+
+    <div class="card">
+
+        <h2 style="text-align:center;">Your Sensory Journey</h2>
+
+        <div class="sense" onclick="openStation('Sight')">
+            <div class="sense-left">
+                <div class="emoji">👁️</div>
+                <div class="sense-name">Sight</div>
+            </div>
+            <div class="status locked" id="status-Sight">🔒 Locked</div>
+        </div>
+
+        <div class="sense" onclick="openStation('Smell')">
+            <div class="sense-left">
+                <div class="emoji">👃</div>
+                <div class="sense-name">Smell</div>
+            </div>
+            <div class="status locked" id="status-Smell">🔒 Locked</div>
+        </div>
+
+        <div class="sense" onclick="openStation('Taste')">
+            <div class="sense-left">
+                <div class="emoji">👅</div>
+                <div class="sense-name">Taste</div>
+            </div>
+            <div class="status locked" id="status-Taste">🔒 Locked</div>
+        </div>
+
+        <div class="sense" onclick="openStation('Touch')">
+            <div class="sense-left">
+                <div class="emoji">✋</div>
+                <div class="sense-name">Touch</div>
+            </div>
+            <div class="status locked" id="status-Touch">🔒 Locked</div>
+        </div>
+
+        <div class="sense" onclick="openStation('Sound')">
+            <div class="sense-left">
+                <div class="emoji">👂</div>
+                <div class="sense-name">Sound</div>
+            </div>
+            <div class="status locked" id="status-Sound">🔒 Locked</div>
+        </div>
+
+        <div class="progress">
+            <strong id="progressText">0 / 5 senses completed</strong>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <div class="success" id="successBox">
+            <div class="tea">🎁</div>
+            <h2>YOU DID IT!</h2>
+            <p>You completed all five senses.</p>
+            <strong>Tea Bomb Unlocked!</strong>
+        </div>
+
+        <button class="reset" onclick="resetCard()">Reset Card</button>
+
+    </div>
+
+    <div class="footer">
+        Sense-ational 🌿 • Experience all five senses
+    </div>
+
+</div>
+
+
+<div class="modal" id="passwordModal">
+
+    <div class="modal-box">
+
+        <h2 id="modalTitle">Staff Verification</h2>
+
+        <p>Ask a Sense-ational staff member to enter the station password.</p>
+
+        <input
+            type="password"
+            id="passwordInput"
+            placeholder="Enter password"
+            autocomplete="off"
+        >
+
+        <div class="error" id="errorMessage">
+            Incorrect password. Please try again.
+        </div>
+
+        <button onclick="verifyPassword()">Verify Station</button>
+
+        <button
+            onclick="closeModal()"
+            style="background:#ddd;color:#333;margin-top:10px;">
+            Cancel
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    /*
+       ================================
+       SENSE-ATIONAL STAFF PASSWORDS
+       ================================
+    */
+
+    const passwords = {
+        Sight: "SIGHT27",
+        Smell: "SMELL84",
+        Taste: "TASTE51",
+        Touch: "TOUCH63",
+        Sound: "SOUND92"
+    };
+
+
+    let selectedStation = "";
+
+
+    /*
+       Generate a participant number
+    */
+
+    function generateParticipantID() {
+
+        let existingID = localStorage.getItem("senseParticipantID");
+
+        if (!existingID) {
+
+            const number = Math.floor(100 + Math.random() * 900);
+
+            existingID = "SA-" + number;
+
+            localStorage.setItem(
+                "senseParticipantID",
+                existingID
+            );
+        }
+
+        return existingID;
+    }
+
+
+    /*
+       Open the station password screen
+    */
+
+    function openStation(station) {
+
+        const completed =
+            localStorage.getItem("completed-" + station);
+
+        if (completed === "true") {
+            return;
+        }
+
+        selectedStation = station;
+
+        document.getElementById("modalTitle").innerText =
+            station + " Station";
+
+        document.getElementById("passwordInput").value = "";
+
+        document.getElementById("errorMessage").style.display =
+            "none";
+
+        document.getElementById("passwordModal").style.display =
+            "flex";
+
+        setTimeout(function() {
+            document.getElementById("passwordInput").focus();
+        }, 100);
+    }
+
+
+    /*
+       Check the password
+    */
+
+    function verifyPassword() {
+
+        const enteredPassword =
+            document.getElementById("passwordInput").value;
+
+        if (enteredPassword === passwords[selectedStation]) {
+
+            localStorage.setItem(
+                "completed-" + selectedStation,
+                "true"
+            );
+
+            closeModal();
+
+            updateCard();
+
+        } else {
+
+            document.getElementById("errorMessage").style.display =
+                "block";
+        }
+    }
+
+
+    /*
+       Close password window
+    */
+
+    function closeModal() {
+
+        document.getElementById("passwordModal").style.display =
+            "none";
+    }
+
+
+    /*
+       Update completed stations
+    */
+
+    function updateCard() {
+
+        const stations = [
+            "Sight",
+            "Smell",
+            "Taste",
+            "Touch",
+            "Sound"
+        ];
+
+        let completedCount = 0;
+
+        stations.forEach(function(station) {
+
+            const completed =
+                localStorage.getItem("completed-" + station)
+                === "true";
+
+            const status =
+                document.getElementById(
+                    "status-" + station
+                );
+
+            if (completed) {
+
+                status.innerText = "✅ Completed";
+
+                status.classList.remove("locked");
+
+                status.classList.add("completed");
+
+                completedCount++;
+
+            } else {
+
+                status.innerText = "🔒 Locked";
+
+                status.classList.remove("completed");
+
+                status.classList.add("locked");
+            }
+
+        });
+
+
+        document.getElementById("progressText").innerText =
+            completedCount + " / 5 senses completed";
+
+
+        document.getElementById("progressFill").style.width =
+            (completedCount / 5 * 100) + "%";
+
+
+        if (completedCount === 5) {
+
+            document.getElementById("successBox").style.display =
+                "block";
+
+        } else {
+
+            document.getElementById("successBox").style.display =
+                "none";
+        }
+    }
+
+
+    /*
+       Reset the card
+    */
+
+    function resetCard() {
+
+        if (!confirm(
+            "Reset this participant's card?"
+        )) {
+            return;
+        }
+
+        const stations = [
+            "Sight",
+            "Smell",
+            "Taste",
+            "Touch",
+            "Sound"
+        ];
+
+        stations.forEach(function(station) {
+
+            localStorage.removeItem(
+                "completed-" + station
+            );
+
+        });
+
+        updateCard();
+    }
+
+
+    /*
+       Start the card
+    */
+
+    document.getElementById("participantId").innerText =
+        generateParticipantID();
+
+    updateCard();
+
+
+    /*
+       Allow Enter key to submit password
+    */
+
+    document.getElementById("passwordInput")
+        .addEventListener("keypress", function(event) {
+
+            if (event.key === "Enter") {
+                verifyPassword();
+            }
+
+        });
+
+</script>
+
+</body>
+</html>
