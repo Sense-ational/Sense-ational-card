@@ -6,56 +6,39 @@
   <meta name="theme-color" content="#eefaf7">
   <meta name="description" content="Complete your five-sense journey with the Sense-ational digital stamp card.">
   <title>Sense-ational | Digital Stamp Card</title>
-
   <style>
     :root {
       --red: #a32626;
       --red-dark: #7f1717;
       --red-glow: rgba(127, 23, 23, 0.13);
-
       --cream: #eefaf7;
       --yellow: #fff2b2;
       --blue: #a9ddec;
-
       --green: #648767;
       --green-dark: #3f6244;
-
       --ink: #302638;
       --muted: #716773;
-
-      --glass: rgba(255, 255, 255, 0.54);
-      --glass-strong: rgba(255, 255, 255, 0.76);
       --glass-border: rgba(255, 255, 255, 0.86);
-
-      --shadow:
-        0 14px 40px rgba(48, 38, 56, 0.08);
-
+      --shadow: 0 14px 40px rgba(48, 38, 56, 0.08);
       --radius: 25px;
     }
-
     * {
       box-sizing: border-box;
     }
-
     html {
       scroll-behavior: smooth;
     }
-
     body {
       margin: 0;
       min-height: 100vh;
-
       color: var(--ink);
-
       font-family:
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
         Arial,
         sans-serif;
-
       line-height: 1.65;
-
       background:
         radial-gradient(
           ellipse at 5% 5%,
@@ -68,142 +51,102 @@
           transparent 34rem
         ),
         var(--cream);
-
       background-attachment: fixed;
     }
-
     button,
     input {
       font: inherit;
     }
-
     button,
     input {
       -webkit-tap-highlight-color: transparent;
     }
-
     button:focus-visible,
     input:focus-visible {
       outline: 3px solid rgba(100, 135, 103, 0.8);
       outline-offset: 4px;
     }
-
     button {
       cursor: pointer;
     }
-
     .icon {
       width: 25px;
       height: 25px;
-
       flex: 0 0 auto;
-
       fill: none;
       stroke: currentColor;
       stroke-width: 1.7;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-
-    /* =================================
-       PAGE LAYOUT
-       ================================= */
-
+    /* PAGE LAYOUT */
     .container {
       width: min(100% - 32px, 560px);
       margin-inline: auto;
       padding: 35px 0 42px;
     }
-
-    /* =================================
-       BRAND HEADER
-       ================================= */
-
+    /* BRAND HEADER */
     .header {
       position: relative;
-
       padding: 14px 10px 30px;
-
       text-align: center;
     }
-
     .brand-mark {
       display: flex;
       align-items: center;
       justify-content: center;
-
-      width: 76px;
-      height: 76px;
-
-      margin: 0 auto 16px;
-
-      color: var(--green-dark);
-
-      border: 1px solid rgba(100, 135, 103, 0.22);
-      border-radius: 25px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255, 255, 255, 0.86),
-          rgba(169, 221, 236, 0.23)
-        );
-
+      width: 100%;
+      max-width: 270px;
+      min-height: 110px;
+      margin: 0 auto 20px;
+      padding: 10px;
+      border: 1px solid rgba(127, 23, 23, 0.12);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.40);
       box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.98),
-        0 8px 26px rgba(48, 38, 56, 0.06),
-        0 0 22px rgba(169, 221, 236, 0.12);
+        inset 0 1px 0 rgba(255, 255, 255, 0.95),
+        0 0 20px rgba(127, 23, 23, 0.06),
+        0 8px 25px rgba(48, 38, 56, 0.05);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
     }
-
-    .brand-mark .icon {
-      width: 40px;
-      height: 40px;
-      stroke-width: 1.45;
+    .brand-logo {
+      display: block;
+      width: 100%;
+      max-width: 240px;
+      max-height: 140px;
+      object-fit: contain;
     }
-
     .eyebrow {
       margin: 0 0 7px;
-
       color: var(--green-dark);
-
       font-size: 0.72rem;
       font-weight: 800;
       letter-spacing: 0.22em;
       text-transform: uppercase;
     }
-
     .header h1 {
       margin: 0;
-
       color: var(--red-dark);
-
       font-size: clamp(2.1rem, 8vw, 3rem);
       font-weight: 850;
       letter-spacing: -0.055em;
       line-height: 1.15;
-
       text-shadow:
         0 2px 12px rgba(127, 23, 23, 0.14),
         0 0 24px rgba(127, 23, 23, 0.05);
     }
-
     .header-description {
       max-width: 340px;
-
       margin: 13px auto 0;
-
       color: var(--muted);
       font-size: 0.96rem;
     }
-
     .heading-line {
       width: 65px;
       height: 3px;
-
       margin: 19px auto 0;
-
       border-radius: 99px;
-
       background:
         linear-gradient(
           90deg,
@@ -211,282 +154,195 @@
           #ffe7a0,
           #719b72
         );
-
-      box-shadow:
-        0 0 12px rgba(169, 221, 236, 0.4);
+      box-shadow: 0 0 12px rgba(169, 221, 236, 0.4);
     }
-
-    /* =================================
-       GLASS CARDS
-       ================================= */
-
+    /* GLASS CARDS */
     .card {
       position: relative;
       overflow: hidden;
-
       margin-bottom: 20px;
       padding: 25px;
-
       border: 1px solid var(--glass-border);
       border-radius: var(--radius);
-
       background:
         linear-gradient(
           145deg,
           rgba(255, 255, 255, 0.77),
           rgba(255, 242, 178, 0.22)
         );
-
       box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.96),
         0 0 20px rgba(127, 23, 23, 0.045),
         var(--shadow);
-
       backdrop-filter: blur(24px) saturate(165%);
       -webkit-backdrop-filter: blur(24px) saturate(165%);
     }
-
     .card-heading {
       margin: 0;
-
       color: var(--red-dark);
-
       font-size: 1.35rem;
       font-weight: 800;
       letter-spacing: -0.025em;
-
       text-align: center;
-
-      text-shadow:
-        0 2px 12px rgba(127, 23, 23, 0.10);
+      text-shadow: 0 2px 12px rgba(127, 23, 23, 0.10);
     }
-
     .card-subheading {
       margin: 6px 0 22px;
-
       color: var(--muted);
       font-size: 0.9rem;
       text-align: center;
     }
-
-    /* =================================
-       PARTICIPANT CARD
-       ================================= */
-
+    /* PARTICIPANT CARD */
     .participant {
-      text-align: center;
       padding: 24px;
+      text-align: center;
     }
-
     .participant-label {
       display: inline-block;
-
       padding: 5px 12px;
-
       color: var(--green-dark);
-
       border: 1px solid rgba(100, 135, 103, 0.19);
       border-radius: 99px;
-
       background: rgba(100, 135, 103, 0.09);
-
       font-size: 0.7rem;
       font-weight: 850;
       letter-spacing: 0.15em;
     }
-
     .participant-id {
       margin: 12px 0 5px;
-
       color: var(--red-dark);
-
       font-size: clamp(2rem, 8vw, 2.6rem);
       font-weight: 900;
       letter-spacing: 0.04em;
-
       text-shadow:
         0 2px 13px rgba(127, 23, 23, 0.14),
         0 0 24px rgba(127, 23, 23, 0.06);
     }
-
     .participant p {
       margin: 7px 0 0;
-
       color: var(--muted);
       font-size: 0.88rem;
     }
-
-    /* =================================
-       SENSORY STATIONS
-       ================================= */
-
+    /* SENSORY STATIONS */
     .sense-list {
       display: grid;
       gap: 13px;
     }
-
     .sense {
       display: flex;
       align-items: center;
       justify-content: space-between;
-
       gap: 12px;
-
       width: 100%;
       min-height: 82px;
-
       padding: 15px;
-
       border: 1px solid rgba(127, 23, 23, 0.14);
       border-radius: 19px;
-
       background:
         linear-gradient(
           135deg,
           rgba(255, 255, 255, 0.72),
           rgba(255, 242, 178, 0.18)
         );
-
       color: var(--ink);
       text-align: left;
-
       box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.96),
         0 5px 16px rgba(48, 38, 56, 0.035);
-
       transition:
         transform 0.22s ease,
         border-color 0.22s ease,
         box-shadow 0.22s ease,
         background 0.22s ease;
     }
-
     .sense:hover {
       transform: translateY(-2px);
-
       border-color: rgba(127, 23, 23, 0.30);
-
       box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.98),
         0 0 17px rgba(127, 23, 23, 0.08),
         0 9px 22px rgba(48, 38, 56, 0.06);
     }
-
     .sense:active {
       transform: scale(0.99);
     }
-
     .sense-left {
       display: flex;
       align-items: center;
-
       gap: 13px;
       min-width: 0;
     }
-
     .sense-icon {
       display: flex;
       align-items: center;
       justify-content: center;
-
       width: 48px;
       height: 48px;
-
       flex: 0 0 auto;
-
       color: var(--red-dark);
-
       border: 1px solid rgba(127, 23, 23, 0.14);
       border-radius: 16px;
-
       background:
         linear-gradient(
           145deg,
           rgba(255, 255, 255, 0.91),
           rgba(169, 221, 236, 0.19)
         );
-
       box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.98),
         0 0 13px rgba(127, 23, 23, 0.045);
     }
-
     .sense-icon .icon {
       width: 25px;
       height: 25px;
     }
-
     .sense-name {
       display: block;
-
       color: var(--red-dark);
-
       font-size: 1.05rem;
       font-weight: 850;
       letter-spacing: -0.02em;
-
-      text-shadow:
-        0 2px 10px rgba(127, 23, 23, 0.11);
+      text-shadow: 0 2px 10px rgba(127, 23, 23, 0.11);
     }
-
     .sense-description {
       display: block;
-
       margin-top: 2px;
-
       color: var(--muted);
       font-size: 0.76rem;
       line-height: 1.4;
     }
-
     .status {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-
       gap: 5px;
-
       flex: 0 0 auto;
-
       padding: 7px 10px;
-
       border: 1px solid rgba(113, 103, 115, 0.12);
       border-radius: 99px;
-
       background: rgba(113, 103, 115, 0.08);
-
       color: #716773;
-
       font-size: 0.68rem;
       font-weight: 800;
       white-space: nowrap;
     }
-
     .status-dot {
       width: 7px;
       height: 7px;
-
       border-radius: 50%;
-
       background: #938a95;
     }
-
     .status.completed {
       color: var(--green-dark);
-
       border-color: rgba(63, 98, 68, 0.20);
-
       background: rgba(100, 135, 103, 0.13);
     }
-
     .status.completed .status-dot {
       background: var(--green-dark);
       box-shadow: 0 0 8px rgba(63, 98, 68, 0.25);
     }
-
     .sense.is-completed {
       border-color: rgba(63, 98, 68, 0.28);
-
       background:
         linear-gradient(
           135deg,
@@ -494,79 +350,817 @@
           rgba(100, 135, 103, 0.12)
         );
     }
-
     .sense.is-completed .sense-icon {
       color: var(--green-dark);
-
       border-color: rgba(63, 98, 68, 0.20);
-
       background: rgba(100, 135, 103, 0.10);
     }
-
     .sense.is-completed .sense-name {
       color: var(--green-dark);
-
-      text-shadow:
-        0 2px 10px rgba(63, 98, 68, 0.12);
+      text-shadow: 0 2px 10px rgba(63, 98, 68, 0.12);
     }
-
-    /* =================================
-       PROGRESS
-       ================================= */
-
+    /* PROGRESS */
     .progress {
       margin-top: 28px;
       padding: 19px;
-
       border: 1px solid rgba(127, 23, 23, 0.10);
       border-radius: 19px;
-
       background: rgba(255, 255, 255, 0.40);
     }
-
     .progress-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-
       gap: 10px;
     }
-
     .progress-label {
       color: var(--ink);
       font-size: 0.85rem;
       font-weight: 750;
     }
-
     .progress-count {
       color: var(--red-dark);
       font-size: 0.88rem;
       font-weight: 900;
-
-      text-shadow:
-        0 1px 8px rgba(127, 23, 23, 0.10);
+      text-shadow: 0 1px 8px rgba(127, 23, 23, 0.10);
     }
-
     .progress-bar {
       height: 11px;
-
       margin-top: 13px;
-
       overflow: hidden;
-
       border: 1px solid rgba(127, 23, 23, 0.06);
       border-radius: 99px;
-
       background: rgba(48, 38, 56, 0.08);
     }
-
     .progress-fill {
       width: 0%;
       height: 100%;
-
       border-radius: inherit;
-
       background:
         linear-gradient(
           90deg,
-         
+          #a9ddec,
+          #719b72,
+          #3f6244
+        );
+      box-shadow: 0 0 12px rgba(100, 135, 103, 0.24);
+      transition: width 0.4s ease;
+    }
+    .progress-caption {
+      margin: 11px 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-align: center;
+    }
+    /* TEA BOMB REWARD */
+    .success {
+      display: none;
+      position: relative;
+      overflow: hidden;
+      margin-top: 22px;
+      padding: 27px 20px;
+      border: 1px solid rgba(100, 135, 103, 0.32);
+      border-radius: 22px;
+      background:
+        radial-gradient(
+          ellipse at top,
+          rgba(255, 242, 178, 0.55),
+          transparent 75%
+        ),
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.82),
+          rgba(100, 135, 103, 0.15)
+        );
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.98),
+        0 0 25px rgba(100, 135, 103, 0.10),
+        0 12px 30px rgba(48, 38, 56, 0.06);
+      text-align: center;
+    }
+    .success.show {
+      display: block;
+      animation: reveal 0.45s ease both;
+    }
+    .reward-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 65px;
+      height: 65px;
+      margin: 0 auto 13px;
+      border: 1px solid rgba(100, 135, 103, 0.25);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.68);
+      color: var(--green-dark);
+      box-shadow: 0 0 20px rgba(100, 135, 103, 0.13);
+    }
+    .reward-icon .icon {
+      width: 34px;
+      height: 34px;
+    }
+    .success h2 {
+      margin: 0;
+      color: var(--green-dark);
+      font-size: 1.75rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      text-shadow: 0 2px 12px rgba(63, 98, 68, 0.13);
+    }
+    .success p {
+      margin: 8px 0;
+      color: var(--muted);
+    }
+    .reward-badge {
+      display: inline-block;
+      margin-top: 9px;
+      padding: 9px 17px;
+      border: 1px solid rgba(127, 23, 23, 0.13);
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.68);
+      color: var(--red-dark);
+      font-size: 0.9rem;
+      font-weight: 850;
+      text-shadow: 0 2px 9px rgba(127, 23, 23, 0.10);
+    }
+    /* BUTTONS */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      width: 100%;
+      min-height: 49px;
+      padding: 12px 20px;
+      border: 1px solid rgba(127, 23, 23, 0.45);
+      border-radius: 999px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(163, 38, 38, 0.94),
+          rgba(127, 23, 23, 0.98)
+        );
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 800;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.30),
+        0 0 15px rgba(127, 23, 23, 0.12),
+        0 8px 22px rgba(127, 23, 23, 0.10);
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        filter 0.22s ease;
+    }
+    .button:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.04);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.35),
+        0 0 20px rgba(127, 23, 23, 0.18),
+        0 12px 27px rgba(127, 23, 23, 0.13);
+    }
+    .button.secondary {
+      color: var(--red-dark);
+      border-color: rgba(127, 23, 23, 0.18);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.78),
+          rgba(255, 242, 178, 0.34)
+        );
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.96),
+        0 0 12px rgba(127, 23, 23, 0.05);
+    }
+    .reset {
+      margin-top: 20px;
+    }
+    /* FOOTER */
+    .footer {
+      padding: 15px 10px 5px;
+      text-align: center;
+    }
+    .footer-brand {
+      margin: 0;
+      color: var(--red-dark);
+      font-size: 1rem;
+      font-weight: 850;
+      letter-spacing: -0.02em;
+      text-shadow: 0 2px 10px rgba(127, 23, 23, 0.10);
+    }
+    .footer p {
+      margin: 5px 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    .footer-line {
+      width: 42px;
+      height: 2px;
+      margin: 15px auto;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--blue), #719b72);
+    }
+    /* STAFF VERIFICATION MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(36, 29, 39, 0.48);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .modal.show {
+      display: flex;
+      animation: fade-in 0.2s ease;
+    }
+    .modal-box {
+      width: 100%;
+      max-width: 390px;
+      padding: 28px 24px;
+      border: 1px solid rgba(255, 255, 255, 0.90);
+      border-radius: 25px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.94),
+          rgba(255, 242, 178, 0.58)
+        );
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.98),
+        0 0 28px rgba(127, 23, 23, 0.10),
+        0 22px 60px rgba(36, 29, 39, 0.17);
+      text-align: center;
+    }
+    .modal-mark {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 15px;
+      border: 1px solid rgba(127, 23, 23, 0.13);
+      border-radius: 17px;
+      background: rgba(255, 255, 255, 0.65);
+      color: var(--red-dark);
+    }
+    .modal-mark .icon {
+      width: 27px;
+      height: 27px;
+    }
+    .modal-box h2 {
+      margin: 0;
+      color: var(--red-dark);
+      font-size: 1.55rem;
+      letter-spacing: -0.035em;
+      text-shadow: 0 2px 10px rgba(127, 23, 23, 0.10);
+    }
+    .modal-box p {
+      margin: 10px 0 18px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .modal-box input {
+      display: block;
+      width: 100%;
+      min-height: 52px;
+      margin: 0 0 13px;
+      padding: 13px 15px;
+      border: 1px solid rgba(127, 23, 23, 0.23);
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.76);
+      color: var(--ink);
+      font-size: 1rem;
+      text-align: center;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.98),
+        0 0 12px rgba(127, 23, 23, 0.045);
+    }
+    .modal-box input:focus {
+      outline: none;
+      border-color: rgba(100, 135, 103, 0.75);
+      box-shadow:
+        0 0 0 4px rgba(100, 135, 103, 0.12),
+        0 0 12px rgba(127, 23, 23, 0.04);
+    }
+    .error {
+      display: none;
+      margin: 0 0 13px;
+      color: #a32626;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    .error.show {
+      display: block;
+    }
+    .modal-box .button + .button {
+      margin-top: 10px;
+    }
+    /* ANIMATIONS */
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    /* MOBILE */
+    @media (max-width: 400px) {
+      .container {
+        width: min(100% - 22px, 560px);
+        padding-top: 22px;
+      }
+      .card {
+        padding: 19px;
+        border-radius: 22px;
+      }
+      .sense {
+        gap: 8px;
+        padding: 12px 10px;
+      }
+      .sense-left {
+        gap: 9px;
+      }
+      .sense-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+      }
+      .sense-name {
+        font-size: 0.98rem;
+      }
+      .sense-description {
+        font-size: 0.70rem;
+      }
+      .status {
+        padding: 6px 8px;
+        font-size: 0.63rem;
+      }
+      .brand-mark {
+        max-width: 240px;
+        min-height: 95px;
+      }
+      .brand-logo {
+        max-width: 210px;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <!-- BRAND HEADER -->
+    <header class="header">
+      <div class="brand-mark">
+        <img
+          src="Sensational-%20logo.png"
+          alt="Sense-ational logo"
+          class="brand-logo"
+        >
+      </div>
+      <p class="eyebrow">Explore · Experience · Enjoy</p>
+      <h1>SENSE-ATIONAL</h1>
+      <p class="header-description">
+        Complete your five-sense journey and unlock your Tea Bomb reward.
+      </p>
+      <div class="heading-line"></div>
+    </header>
+    <!-- PARTICIPANT CARD -->
+    <section class="card participant" aria-label="Participant details">
+      <span class="participant-label">PARTICIPANT</span>
+      <div class="participant-id" id="participantId">SA-000</div>
+      <p>Keep this card open throughout your sensory journey.</p>
+    </section>
+    <!-- SENSORY JOURNEY -->
+    <section class="card">
+      <h2 class="card-heading">Your Sensory Journey</h2>
+      <p class="card-subheading">
+        Visit all five stalls and ask a staff member to verify each station.
+      </p>
+      <div class="sense-list">
+        <!-- SIGHT -->
+        <button class="sense" type="button" data-station="Sight">
+          <span class="sense-left">
+            <span class="sense-icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </span>
+            <span>
+              <span class="sense-name">Sight</span>
+              <span class="sense-description">Observe and remember</span>
+            </span>
+          </span>
+          <span class="status locked" id="status-Sight">
+            <span class="status-dot"></span>
+            Locked
+          </span>
+        </button>
+        <!-- SMELL -->
+        <button class="sense" type="button" data-station="Smell">
+          <span class="sense-left">
+            <span class="sense-icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M12 3c-2.8 0-4.5 2.4-4.5 5.2v4.1a2 2 0 0 1-2 2H4a2 2 0 0 0 0 4h2.5"/>
+                <path d="M12 3c2.8 0 4.5 2.4 4.5 5.2v4.1a2 2 0 0 0 2 2H20a2 2 0 0 1 0 4h-2.5"/>
+                <path d="M9 18.5c.8 1.2 1.8 1.5 3 1.5s2.2-.3 3-1.5"/>
+                <path d="M9.5 10h.01M14.5 10h.01"/>
+              </svg>
+            </span>
+            <span>
+              <span class="sense-name">Smell</span>
+              <span class="sense-description">Discover botanical aromas</span>
+            </span>
+          </span>
+          <span class="status locked" id="status-Smell">
+            <span class="status-dot"></span>
+            Locked
+          </span>
+        </button>
+        <!-- TASTE -->
+        <button class="sense" type="button" data-station="Taste">
+          <span class="sense-left">
+            <span class="sense-icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M12 3c-1.5 2.5-6 6.5-6 11a6 6 0 0 0 12 0c0-4.5-4.5-8.5-6-11Z"/>
+                <path d="M9 15c.2 1.4 1.2 2.2 2.5 2.4"/>
+              </svg>
+            </span>
+            <span>
+              <span class="sense-name">Taste</span>
+              <span class="sense-description">Explore herbal flavours</span>
+            </span>
+          </span>
+          <span class="status locked" id="status-Taste">
+            <span class="status-dot"></span>
+            Locked
+          </span>
+        </button>
+        <!-- TOUCH -->
+        <button class="sense" type="button" data-station="Touch">
+          <span class="sense-left">
+            <span class="sense-icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M8 12V5a1.5 1.5 0 0 1 3 0v6-8a1.5 1.5 0 0 1 3 0v8-6a1.5 1.5 0 0 1 3 0v7-3a1.5 1.5 0 0 1 3 0v6c0 4-2.5 7-6.5 7h-2c-2 0-3.5-1-4.5-2.5L3 14a1.7 1.7 0 0 1 2.5-2.2L8 14"/>
+              </svg>
+            </span>
+            <span>
+              <span class="sense-name">Touch</span>
+              <span class="sense-description">Create and explore textures</span>
+            </span>
+          </span>
+          <span class="status locked" id="status-Touch">
+            <span class="status-dot"></span>
+            Locked
+          </span>
+        </button>
+        <!-- SOUND -->
+        <button class="sense" type="button" data-station="Sound">
+          <span class="sense-left">
+            <span class="sense-icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M11 5 6 9H2v6h4l5 4V5Z"/>
+                <path d="M15.5 8.5a5 5 0 0 1 0 7"/>
+                <path d="M18.5 5.5a9 9 0 0 1 0 13"/>
+              </svg>
+            </span>
+            <span>
+              <span class="sense-name">Sound</span>
+              <span class="sense-description">Listen and concentrate</span>
+            </span>
+          </span>
+          <span class="status locked" id="status-Sound">
+            <span class="status-dot"></span>
+            Locked
+          </span>
+        </button>
+      </div>
+      <!-- PROGRESS -->
+      <div class="progress">
+        <div class="progress-top">
+          <span class="progress-label">Journey progress</span>
+          <span class="progress-count" id="progressText">0 / 5</span>
+        </div>
+        <div
+          class="progress-bar"
+          id="progressBar"
+          role="progressbar"
+          aria-label="Sensory journey progress"
+          aria-valuemin="0"
+          aria-valuemax="5"
+          aria-valuenow="0"
+        >
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <p class="progress-caption" id="progressCaption">
+          Five senses to discover. One reward to unlock.
+        </p>
+      </div>
+      <!-- REWARD -->
+      <div class="success" id="successBox" aria-live="polite">
+        <div class="reward-icon" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24">
+            <path d="M5 8h14l-1 13H6L5 8Z"/>
+            <path d="M9 8a3 3 0 0 1 6 0"/>
+            <path d="M12 2v2"/>
+            <path d="m4 4 1.5 1.5"/>
+            <path d="M20 4l-1.5 1.5"/>
+          </svg>
+        </div>
+        <h2>Journey Complete</h2>
+        <p>You've completed all five sensory stations.</p>
+        <span class="reward-badge">Tea Bomb Reward Unlocked</span>
+        <p>
+          Show your completed digital card to the Sense-ational team
+          and follow their instructions to claim your reward.
+        </p>
+      </div>
+      <!-- RESET -->
+      <button class="button secondary reset" id="resetButton" type="button">
+        Reset This Card
+      </button>
+    </section>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p class="footer-brand">Sense-ational</p>
+      <div class="footer-line"></div>
+      <p>Five Stalls. Five Senses. One Amazing Experience.</p>
+      <p>Experience every sense. Discover something extraordinary.</p>
+    </footer>
+  </main>
+  <!-- STAFF VERIFICATION MODAL -->
+  <div
+    class="modal"
+    id="passwordModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle"
+    aria-describedby="modalDescription"
+  >
+    <div class="modal-box">
+      <div class="modal-mark" aria-hidden="true">
+        <svg class="icon" viewBox="0 0 24 24">
+          <rect x="4" y="10" width="16" height="11" rx="2"/>
+          <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+          <path d="M12 14v3"/>
+        </svg>
+      </div>
+      <h2 id="modalTitle">Staff Verification</h2>
+      <p id="modalDescription">
+        Ask a Sense-ational staff member to enter the station password.
+      </p>
+      <form id="passwordForm">
+        <label for="passwordInput" style="display:block;text-align:left;font-weight:750;margin-bottom:8px;">
+          Station password
+        </label>
+        <input
+          type="password"
+          id="passwordInput"
+          placeholder="Enter password"
+          autocomplete="off"
+          autocapitalize="characters"
+          required
+        >
+        <p class="error" id="errorMessage" role="alert">
+          Incorrect password. Please try again.
+        </p>
+        <button class="button" type="submit">
+          Verify Station
+        </button>
+        <button
+          class="button secondary"
+          id="cancelButton"
+          type="button"
+        >
+          Cancel
+        </button>
+      </form>
+    </div>
+  </div>
+  <script>
+    /*
+      IMPORTANT SECURITY NOTE:
+      Passwords embedded in client-side JavaScript are visible
+      to anyone who inspects the source code. They discourage
+      casual access but are not secure staff authentication.
+    */
+    const passwords = {
+      Sight: "SIGHT27",
+      Smell: "SMELL84",
+      Taste: "TASTE51",
+      Touch: "TOUCH63",
+      Sound: "SOUND92"
+    };
+    const stations = [
+      "Sight",
+      "Smell",
+      "Taste",
+      "Touch",
+      "Sound"
+    ];
+    let selectedStation = "";
+    /*
+      Each browser gets its own participant ID and local progress.
+      Clearing browser storage or switching devices can reset progress.
+    */
+    function generateParticipantID() {
+      const storageKey = "senseParticipantID";
+      let existingID = localStorage.getItem(storageKey);
+      if (!existingID) {
+        const number = Math.floor(100 + Math.random() * 900);
+        existingID = "SA-" + number;
+        localStorage.setItem(storageKey, existingID);
+      }
+      return existingID;
+    }
+    function isCompleted(station) {
+      return localStorage.getItem("completed-" + station) === "true";
+    }
+    /*
+      Open station verification.
+    */
+    function openStation(station) {
+      if (!passwords[station]) {
+        return;
+      }
+      if (isCompleted(station)) {
+        return;
+      }
+      selectedStation = station;
+      document.getElementById("modalTitle").textContent =
+        station + " Station";
+      document.getElementById("passwordInput").value = "";
+      document.getElementById("errorMessage").classList.remove("show");
+      document.getElementById("passwordModal").classList.add("show");
+      setTimeout(() => {
+        document.getElementById("passwordInput").focus();
+      }, 100);
+    }
+    /*
+      Verify station password.
+    */
+    function verifyPassword(event) {
+      if (event) {
+        event.preventDefault();
+      }
+      if (!selectedStation) {
+        return;
+      }
+      const enteredPassword =
+        document.getElementById("passwordInput").value.trim();
+      const correctPassword = passwords[selectedStation];
+      if (
+        enteredPassword.toUpperCase() === correctPassword.toUpperCase()
+      ) {
+        localStorage.setItem(
+          "completed-" + selectedStation,
+          "true"
+        );
+        closeModal();
+        updateCard();
+      } else {
+        document.getElementById("errorMessage").classList.add("show");
+        document.getElementById("passwordInput").select();
+      }
+    }
+    /*
+      Close modal.
+    */
+    function closeModal() {
+      document.getElementById("passwordModal").classList.remove("show");
+      document.getElementById("passwordInput").value = "";
+      document.getElementById("errorMessage").classList.remove("show");
+      selectedStation = "";
+    }
+    /*
+      Update station statuses and progress.
+    */
+    function updateCard() {
+      let completedCount = 0;
+      stations.forEach((station) => {
+        const completed = isCompleted(station);
+        const status = document.getElementById("status-" + station);
+        const button = document.querySelector(
+          '[data-station="' + station + '"]'
+        );
+        if (completed) {
+          status.innerHTML =
+            '<span class="status-dot"></span> Completed';
+          status.classList.remove("locked");
+          status.classList.add("completed");
+          button.classList.add("is-completed");
+          button.setAttribute(
+            "aria-label",
+            station + " station, completed"
+          );
+          completedCount++;
+        } else {
+          status.innerHTML =
+            '<span class="status-dot"></span> Locked';
+          status.classList.remove("completed");
+          status.classList.add("locked");
+          button.classList.remove("is-completed");
+          button.setAttribute(
+            "aria-label",
+            station + " station, locked; tap to verify"
+          );
+        }
+      });
+      document.getElementById("progressText").textContent =
+        completedCount + " / 5";
+      document.getElementById("progressFill").style.width =
+        (completedCount / stations.length * 100) + "%";
+      document.getElementById("progressBar").setAttribute(
+        "aria-valuenow",
+        String(completedCount)
+      );
+      const successBox = document.getElementById("successBox");
+      if (completedCount === stations.length) {
+        successBox.classList.add("show");
+        document.getElementById("progressCaption").textContent =
+          "All five stations completed. Your journey is complete!";
+      } else {
+        successBox.classList.remove("show");
+        document.getElementById("progressCaption").textContent =
+          "Five senses to discover. One reward to unlock.";
+      }
+    }
+    /*
+      Reset card progress on this device.
+    */
+    function resetCard() {
+      const confirmed = window.confirm(
+        "Reset this participant's card? All five station completions will be cleared on this device."
+      );
+      if (!confirmed) {
+        return;
+      }
+      stations.forEach((station) => {
+        localStorage.removeItem("completed-" + station);
+      });
+      closeModal();
+      updateCard();
+    }
+    /*
+      Initialise card.
+    */
+    document.getElementById("participantId").textContent =
+      generateParticipantID();
+    document.querySelectorAll("[data-station]").forEach((button) => {
+      button.addEventListener("click", () => {
+        openStation(button.dataset.station);
+      });
+    });
+    document.getElementById("passwordForm").addEventListener(
+      "submit",
+      verifyPassword
+    );
+    document.getElementById("cancelButton").addEventListener(
+      "click",
+      closeModal
+    );
+    document.getElementById("resetButton").addEventListener(
+      "click",
+      resetCard
+    );
+    document.getElementById("passwordModal").addEventListener(
+      "click",
+      (event) => {
+        if (event.target.id === "passwordModal") {
+          closeModal();
+        }
+      }
+    );
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    });
+    updateCard();
+  </script>
+</body>
+</html>
